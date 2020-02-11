@@ -14,10 +14,4 @@
     </ul>
 </div>
 
-<div style="float: right;">
-    <ul>
-        <li *ngFor="let type of typesArray">
-            <img src="https://temtem-api.mael.tech{{type.icon}}" title="{{type.name}}"/>
-        </li>
-    </ul>
-</div>
+<app-weaknesses-matrix [types]="typesArray" [weaknesses]="weaknesses"></app-weaknesses-matrix>

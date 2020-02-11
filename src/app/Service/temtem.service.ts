@@ -17,7 +17,7 @@ export class TemtemService {
     private _baseAPIUrl = "https://temtem-api.mael.tech";
     private _temtemListUrl = "https://temtem-api.mael.tech/api/temtems";
     private _temtemTypesUrl = "https://temtem-api.mael.tech/api/types";
-    private _temtemWeaknessesUrl = "https://temtem-api.mael.tech/api/weaknesses/calculate";
+    private _temtemWeaknessesUrl = "https://temtem-api.mael.tech/api/weaknesses/";
     //#endregion
 
     // Base constructor 
@@ -33,8 +33,8 @@ export class TemtemService {
         return this.httpClient.get<TemtemTypeResponse[]>(this._temtemTypesUrl);
     }
 
-    public getTemtemsWeaknesses(): Observable<TemtemWeaknessesResponse[]> {
-        return this.httpClient.get<TemtemWeaknessesResponse[]>(this._temtemWeaknessesUrl);
+    public getTemtemsWeaknesses(): Observable<TemtemWeaknessesResponse> {
+        return this.httpClient.get<TemtemWeaknessesResponse>(this._temtemWeaknessesUrl);
     }
     //#endregion
 }

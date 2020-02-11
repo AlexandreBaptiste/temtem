@@ -15,16 +15,16 @@ export class AppComponent implements OnInit {
 
   public temtemsArray: TemtemListResponse[];
   public typesArray: TemtemTypeResponse[];    
-  public weaknessesArray: TemtemWeaknessesResponse[];
+  public weaknesses: TemtemWeaknessesResponse;
 
   constructor (private temtemService: TemtemService) {
   }
 
   // Fetch all API Data
   private initializeAPI(){
-    this.temtemService.getTemtemsList().subscribe(response       => { this.temtemsArray    = response; });
-    this.temtemService.getTemtemsTypes().subscribe(response      => { this.typesArray      = response; });
-    this.temtemService.getTemtemsWeaknesses().subscribe(response => { this.weaknessesArray = response; });
+    this.temtemService.getTemtemsList().subscribe(response       => { this.temtemsArray = response; });
+    this.temtemService.getTemtemsTypes().subscribe(response      => { this.typesArray   = response; this.typesArray.length = response.length; });
+    this.temtemService.getTemtemsWeaknesses().subscribe(response => { this.weaknesses   = response; });
   }
 
   ngOnInit(){

@@ -1,0 +1,18 @@
+<p>weaknesses-matrix works!</p>
+
+<table id="weaknesses-table">
+    <tr>
+        <td></td>
+        <th *ngFor="let type of types;" scope="col">
+            <img src="https://temtem-api.mael.tech{{type.icon}}" title="{{type.name}}" id="first-row-{{type.name}}"/>
+        </th>
+    </tr>
+    <tr *ngFor="let type of types; let _index = index">
+        <th scope="row">
+            <img src="https://temtem-api.mael.tech{{type.icon}}" title="{{type.name}}" id="first-column-{{type.name}}"/>
+        </th>
+        <td *ngFor="let td of tdArray(types.length);">
+            {{_index}}_{{td}}
+        </td>        
+    </tr>
+</table>
