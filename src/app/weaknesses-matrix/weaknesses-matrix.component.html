@@ -1,18 +1,17 @@
-<p>weaknesses-matrix works!</p>
-
-<table id="weaknesses-table">
+<table id="weaknesses-table" class="table-chart">
     <tr>
-        <td></td>
+        <td class="splitted">
+            <div class="h-1">ATK</div>
+            <div class="h-2">DEF</div>
+        </td>
         <th *ngFor="let type of types;" scope="col">
-            <img src="https://temtem-api.mael.tech{{type.icon}}" title="{{type.name}}" id="first-row-{{type.name}}"/>
+            <img src="https://temtem-api.mael.tech{{type.icon}}" title="{{type.name}}" id="first-row-{{type.name}}" class="icon"/>
         </th>
     </tr>
     <tr *ngFor="let type of types; let _index = index">
         <th scope="row">
-            <img src="https://temtem-api.mael.tech{{type.icon}}" title="{{type.name}}" id="first-column-{{type.name}}"/>
+            <img src="https://temtem-api.mael.tech{{type.icon}}" title="{{type.name}}" id="first-column-{{type.name}}" class="icon"/>
         </th>
-        <td *ngFor="let td of tdArray(types.length);">
-            {{_index}}_{{td}}
-        </td>        
+        <td *ngFor="let td of tdArray(types.length);" [className]="populateCellBackground(_index, td)">{{getWeaknessMultiplicator(_index, td)}}</td>        
     </tr>
 </table>

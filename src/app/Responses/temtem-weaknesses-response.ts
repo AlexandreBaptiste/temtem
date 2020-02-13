@@ -1,190 +1,38 @@
-export interface TemtemWeaknessesResponse {
-    // DO NOT WORK
-    // TODO: Figure it out
-    Neutral: {
-        Neutral: number;
-        Fire: number;
-        Water: number;
-        Nature: number;
-        Electric: number;
-        Earth: number;
-        Mental: number;
-        Wind: number;
-        Digital: number;
-        Melee: number;
-        Crystal: number;
-    };
+import { WeaknessModel } from "../Models/weakness-model";
+import { Deserializable } from "../Models/deserializable-model";
 
-    /**
-    {
-        "Neutral": {
-          "Neutral": 1,
-          "Fire": 1,
-          "Water": 1,
-          "Nature": 1,
-          "Electric": 1,
-          "Earth": 1,
-          "Mental": 0.5,
-          "Wind": 1,
-          "Digital": 1,
-          "Melee": 1,
-          "Crystal": 1,
-          "Toxic": 1
-        },
-        "Fire": {
-          "Neutral": 1,
-          "Fire": 0.5,
-          "Water": 0.5,
-          "Nature": 2,
-          "Electric": 1,
-          "Earth": 0.5,
-          "Mental": 1,
-          "Wind": 1,
-          "Digital": 1,
-          "Melee": 1,
-          "Crystal": 2,
-          "Toxic": 1
-        },
-        "Water": {
-          "Neutral": 1,
-          "Fire": 2,
-          "Water": 0.5,
-          "Nature": 0.5,
-          "Electric": 1,
-          "Earth": 2,
-          "Mental": 1,
-          "Wind": 1,
-          "Digital": 2,
-          "Melee": 1,
-          "Crystal": 1,
-          "Toxic": 0.5
-        },
-        "Nature": {
-          "Neutral": 1,
-          "Fire": 0.5,
-          "Water": 2,
-          "Nature": 0.5,
-          "Electric": 1,
-          "Earth": 2,
-          "Mental": 1,
-          "Wind": 1,
-          "Digital": 1,
-          "Melee": 1,
-          "Crystal": 1,
-          "Toxic": 0.5
-        },
-        "Electric": {
-          "Neutral": 1,
-          "Fire": 1,
-          "Water": 2,
-          "Nature": 0.5,
-          "Electric": 0.5,
-          "Earth": 0.5,
-          "Mental": 2,
-          "Wind": 2,
-          "Digital": 2,
-          "Melee": 1,
-          "Crystal": 0.5,
-          "Toxic": 1
-        },
-        "Earth": {
-          "Neutral": 1,
-          "Fire": 2,
-          "Water": 0.5,
-          "Nature": 0.5,
-          "Electric": 2,
-          "Earth": 1,
-          "Mental": 1,
-          "Wind": 0.5,
-          "Digital": 1,
-          "Melee": 1,
-          "Crystal": 2,
-          "Toxic": 1
-        },
-        "Mental": {
-          "Neutral": 2,
-          "Fire": 1,
-          "Water": 1,
-          "Nature": 1,
-          "Electric": 1,
-          "Earth": 1,
-          "Mental": 1,
-          "Wind": 1,
-          "Digital": 1,
-          "Melee": 2,
-          "Crystal": 0.5,
-          "Toxic": 1
-        },
-        "Wind": {
-          "Neutral": 1,
-          "Fire": 1,
-          "Water": 1,
-          "Nature": 1,
-          "Electric": 0.5,
-          "Earth": 1,
-          "Mental": 1,
-          "Wind": 0.5,
-          "Digital": 1,
-          "Melee": 1,
-          "Crystal": 1,
-          "Toxic": 2
-        },
-        "Digital": {
-          "Neutral": 1,
-          "Fire": 1,
-          "Water": 1,
-          "Nature": 1,
-          "Electric": 1,
-          "Earth": 1,
-          "Mental": 2,
-          "Wind": 1,
-          "Digital": 2,
-          "Melee": 2,
-          "Crystal": 1,
-          "Toxic": 1
-        },
-        "Melee": {
-          "Neutral": 1,
-          "Fire": 1,
-          "Water": 1,
-          "Nature": 1,
-          "Electric": 1,
-          "Earth": 2,
-          "Mental": 0.5,
-          "Wind": 1,
-          "Digital": 1,
-          "Melee": 0.5,
-          "Crystal": 2,
-          "Toxic": 1
-        },
-        "Crystal": {
-          "Neutral": 1,
-          "Fire": 0.5,
-          "Water": 1,
-          "Nature": 1,
-          "Electric": 2,
-          "Earth": 0.5,
-          "Mental": 2,
-          "Wind": 1,
-          "Digital": 1,
-          "Melee": 1,
-          "Crystal": 1,
-          "Toxic": 1
-        },
-        "Toxic": {
-          "Neutral": 1,
-          "Fire": 1,
-          "Water": 2,
-          "Nature": 2,
-          "Electric": 1,
-          "Earth": 0.5,
-          "Mental": 1,
-          "Wind": 1,
-          "Digital": 0.5,
-          "Melee": 1,
-          "Crystal": 0.5,
-          "Toxic": 0.5
-        }
-      }
-    **/
+/*
+* See @weakness-model for API response
+* DOC: https://nehalist.io/angular-7-models/
+*/
+export class TemtemWeaknessesResponse implements Deserializable {
+  Neutral: WeaknessModel;
+  Fire : WeaknessModel;
+  Water : WeaknessModel;
+  Nature : WeaknessModel;
+  Electric : WeaknessModel;
+  Earth : WeaknessModel;
+  Mental : WeaknessModel;
+  Wind : WeaknessModel;
+  Digital : WeaknessModel;
+  Melee : WeaknessModel;
+  Crystal : WeaknessModel;
+  Toxic : WeaknessModel;
+  
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    this.Neutral = new WeaknessModel().deserialize(input.Neutral);
+    this.Fire = new WeaknessModel().deserialize(input.Fire);
+    this.Water = new WeaknessModel().deserialize(input.Water);
+    this.Nature = new WeaknessModel().deserialize(input.Nature);
+    this.Electric = new WeaknessModel().deserialize(input.Electric);
+    this.Earth = new WeaknessModel().deserialize(input.Earth);
+    this.Mental = new WeaknessModel().deserialize(input.Mental);
+    this.Wind = new WeaknessModel().deserialize(input.Wind);
+    this.Digital = new WeaknessModel().deserialize(input.Digital);
+    this.Melee = new WeaknessModel().deserialize(input.Melee);
+    this.Crystal = new WeaknessModel().deserialize(input.Crystal);
+    this.Toxic = new WeaknessModel().deserialize(input.Toxic);
+    return this;
+  }
 }

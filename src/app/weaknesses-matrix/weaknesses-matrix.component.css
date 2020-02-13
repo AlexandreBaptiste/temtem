@@ -1,0 +1,50 @@
+.weak {
+    background-color: darkred;
+    color: yellow;    
+}
+
+.neutral {
+    font-size: 0;
+}
+
+.effective {
+    background-color: green;
+    color: yellow;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    padding: 0;
+    border: 1px solid #f0f0f0;
+    font-size: x-large;
+}
+
+.table-chart th {
+    padding: 0;
+    border: 1px solid #f0f0f0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.icon {
+    background-color: darkgray;
+    height: 90px;
+}
+
+.splitted {
+    background-image: linear-gradient(to bottom left, white 49%, darkgray 50%, white 51%);
+}
+
+.h-1 {
+    transform: translate(20px, -5px);            
+}
+
+.h-2 {
+    transform: translate(-20px,5px);
+}
