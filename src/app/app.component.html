@@ -1,17 +1,11 @@
 <div style="text-align: center">
 <h1>
-    Temtem ?
+    Temtem 
 </h1>
 </div>
 
 <hr/>
 
-<div style="float: left;">
-    <ul>
-        <li *ngFor="let temtem of temtemsArray">
-            N°{{temtem.number}} <img src="{{temtem.portraitWikiUrl}}"/>
-        </li>
-    </ul>
-</div>
+<app-search [temtemList]="temtemsArray" [types]="typesArray" style="float: left;"></app-search>
 
 <app-weaknesses-matrix [types]="typesArray" [weaknesses]="weaknesses" style="float: right;"></app-weaknesses-matrix>

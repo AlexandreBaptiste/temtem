@@ -1,0 +1,34 @@
+<input type="search" placeholder="Pikachu..." id="search-bar">
+<br/>
+<br/>
+<br/>
+<br/>
+<table id="search-table" class="table-search">
+    <tr>
+        <th rowspan="2">Icône</th>
+        <th rowspan="2">Nom</th>
+        <th rowspan="2">Type(s)</th>
+        <th colspan="7">Statistiques</th>
+    </tr>
+    <tr>
+        <th></th>
+        <th>HP</th>
+        <th>STA</th>
+        <th>SPD</th>
+        <th>ATK</th>
+        <th>DEF</th>
+        <th>SPATK</th>
+        <th>SPDEF</th>
+    </tr>
+    <tr *ngFor="let temtem of temtemList; let _index = index">
+        <td>
+            <img src="{{temtem.portraitWikiUrl}}"/>
+        </td>   
+        <td>
+            {{temtem.name}}
+        </td> 
+        <td *ngFor="let type of temtem.types">
+            {{type}}
+        </td> 
+    </tr>
+</table>

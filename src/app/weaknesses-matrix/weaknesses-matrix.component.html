@@ -12,6 +12,6 @@
         <th scope="row">
             <img src="https://temtem-api.mael.tech{{type.icon}}" title="{{type.name}}" id="first-column-{{type.name}}" class="icon"/>
         </th>
-        <td *ngFor="let td of tdArray(types.length);" [className]="populateCellBackground(_index, td)">{{getWeaknessMultiplicator(_index, td)}}</td>        
+        <td *ngFor="let td of tdArray(types.length);" [className]="populateCellBackground(td, _index)">{{getWeaknessMultiplicator(td, _index)}}</td>        
     </tr>
 </table>
